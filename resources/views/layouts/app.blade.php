@@ -508,14 +508,17 @@ table td .action-button {
     <header>
         SCREAM! discos
     </header>
-<nav>
+    <nav>
+    <a href="{{ route('home') }}">Home</a>
     <a href="{{ route('genres.index') }}">Gêneros</a>
     <a href="{{ route('artists.index') }}">Artistas</a>
     <a href="{{ route('formats.index') }}">Formatos</a>
     <a href="{{ route('discs.index') }}">Discos</a>
-    <a href="{{ route('customers.index') }}">Clientes</a> <!-- Novo menu -->
-    <a href="{{ route('sales.index') }}">Vendas</a> <!-- Novo menu -->
+    <a href="{{ route('customers.index') }}">Clientes</a>
+    <a href="{{ route('sales.index') }}">Vendas</a>
+ 
 </nav>
+
 
     <hr>
 

@@ -4,15 +4,15 @@
 
 @section('content')
     <div class="show-container">
-        <!-- Mensagem de Boas-Vindas -->
-        <h1>Bem-vindo à SCREAM!, sua loja favorita de discos.</h1>
+    
+        <h1>Bem-vindo à SCREAM! sua loja de discos favorita.</h1>
         <p>Explore nossa coleção de discos incríveis!</p>
-        <p>Na SCREAM!, acreditamos que a música é muito mais do que sons; ela é emoção, história e conexão. Cada disco conta uma narrativa, cada melodia ressoa com um momento único na vida de quem a ouve. Nosso propósito é propagar a cultura musical, oferecendo um espaço onde paixões são despertadas e memórias são criadas.</p>
+        <p>Na SCREAM! acreditamos que a música é muito mais do que sons; ela é emoção, história e conexão. Cada disco conta uma narrativa, cada melodia ressoa com um momento único na vida de quem a ouve. Nosso propósito é propagar a cultura musical, oferecendo um espaço onde paixões são despertadas e memórias são criadas.</p>
 
         <p>SCREAM! discos – porque música é mais do que ouvir, é sentir. 🎶❤️</p>
     </div>
 
-    <!-- Seção de Discos em Destaque -->
+
     <div class="featured-discs-container">
         <h2>Discos em Destaque</h2>
         <div class="disc-grid">

@@ -34,3 +34,4 @@ Route::resource('sales', SaleController::class);
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
