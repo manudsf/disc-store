@@ -501,6 +501,98 @@ table td .action-button {
     font-weight: bold;
 }
 
+nav {
+    background-color: #e0d4f4; /* Roxo pastel */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os itens */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #5d3ea8; /* Roxo médio */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #f4eafa; /* Fundo mais claro */
+    display: inline-block;
+    text-align: center; /* Centraliza o texto no link */
+}
+
+nav a:hover {
+    background-color: #d3c3f4; /* Hover suave */
+    color: #4b0082; /* Roxo intenso */
+}
+
+/*login*/
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #FFF5F5; /* Fundo suave */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #4b0082; /* Vermelho escuro */
+    margin-bottom: 20px;
+}
+
+.login-container .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5d3ea8; /* Roxo médio */
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container .action-button.save {
+    width: 100%;
+    background-color: #5d3ea8; /* Roxo pastel */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container .action-button.save:hover {
+    background-color: #4b2e89; /* Roxo mais escuro */
+}
+
+.login-container .forgot-link {
+    display: block;
+    margin-top: 10px;
+    color: #5d3ea8; /* Roxo médio */
+    text-decoration: none;
+}
+
+.login-container .forgot-link:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #e63946; /* Vermelho claro para erro */
+    font-size: 12px;
+}
+
     </style>
 </head>
 <body>
@@ -516,8 +608,21 @@ table td .action-button {
     <a href="{{ route('discs.index') }}">Discos</a>
     <a href="{{ route('customers.index') }}">Clientes</a>
     <a href="{{ route('sales.index') }}">Vendas</a>
- 
+
+    @auth
+        <a href="#" 
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+           class="menu-link">
+           Sair
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @else
+        <a href="{{ route('login') }}" class="menu-link">Login</a>
+    @endauth
 </nav>
+
 
 
     <hr>

@@ -1,37 +1,39 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 use App\Http\Controllers\GenreController;
-
-Route::resource('genres', GenreController::class);
-
 use App\Http\Controllers\ArtistController;
-
-Route::resource('artists', ArtistController::class);
-
 use App\Http\Controllers\FormatController;
-
-Route::resource('formats', FormatController::class);
-
 use App\Http\Controllers\DiscController;
-
-Route::resource('discs', DiscController::class);
-
 use App\Http\Controllers\CustomerController;
-
-Route::resource('customers', CustomerController::class);
-
-
 use App\Http\Controllers\SaleController;
-
-Route::resource('sales', SaleController::class);
-
 use App\Http\Controllers\HomeController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+Route::middleware('auth')->group(function () {
+    
+    Route::resource('genres', GenreController::class);
+    Route::resource('artists', ArtistController::class);
+    Route::resource('formats', FormatController::class);
+    Route::resource('discs', DiscController::class);
+    Route::resource('customers', CustomerController::class);
+    Route::resource('sales', SaleController::class);
+
+ 
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.dashboard');
+    });
+});
+
+
+require __DIR__.'/auth.php';
