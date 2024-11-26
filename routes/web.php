@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/search', [DiscController::class, 'search'])->name('discs.search');
 
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 

@@ -13,11 +13,34 @@ class SaleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $sales = Sale::with('customer')->get(); // Carrega as vendas com o cliente associado
-        return view('sales.index', compact('sales'));
+    public function index(Request $request)
+{
+    $query = Sale::query()->with('customer');
+
+    // Filtro por cliente
+    if ($request->filled('customer_id')) {
+        $query->where('customer_id', $request->input('customer_id'));
     }
+
+    // Filtro por período
+    if ($request->filled('start_date') && $request->filled('end_date')) {
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        // Inclui o dia inteiro do end_date (até 23:59:59)
+        $query->whereBetween('created_at', [
+            $startDate,
+            \Carbon\Carbon::parse($endDate)->endOfDay(),
+        ]);
+    }
+
+    $sales = $query->get();
+
+    $customers = \App\Models\Customer::all();
+
+    return view('sales.index', compact('sales', 'customers'));
+}
+
 
     /**
      * Show the form for creating a new resource.
