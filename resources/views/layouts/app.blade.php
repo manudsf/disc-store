@@ -592,6 +592,30 @@ nav a:hover {
     color: #e63946; /* Vermelho claro para erro */
     font-size: 12px;
 }
+.error {
+    color: #e63946; /* Vermelho claro */
+    font-size: 14px;
+}
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link .action-button.register {
+    background-color: #5d3ea8; /* Roxo */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.register-link .action-button.register:hover {
+    background-color: #4b2e89; /* Roxo mais escuro */
+    transform: scale(1.05); /* Leve efeito de hover */
+}
+
 
     </style>
 </head>

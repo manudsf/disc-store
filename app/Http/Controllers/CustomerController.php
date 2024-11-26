@@ -32,9 +32,10 @@ class CustomerController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:customers,email', // Valida e-mail único
-            'phone' => 'nullable|string|max:15',
+            'email' => 'required|email|unique:customers,email',
+            'phone' => 'nullable|regex:/^[0-9]+$/|min:10|max:15',
         ]);
+    
 
         Customer::create($validatedData); // Cria o cliente com os dados validados
 
@@ -64,8 +65,8 @@ class CustomerController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:customers,email,' . $customer->id, // Permite o mesmo e-mail do cliente atual
-            'phone' => 'nullable|string|max:15',
+            'email' => 'required|email|unique:customers,email,' . $customer->id,
+            'phone' => 'nullable|regex:/^[0-9]+$/|min:10|max:15', // Somente números, entre 10 e 15 caracteres
         ]);
 
         $customer->update($validatedData); // Atualiza o cliente com os dados validados

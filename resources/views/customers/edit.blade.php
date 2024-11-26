@@ -10,13 +10,33 @@
         @method('PUT')
 
         <label for="name">Nome:</label><br>
-        <input type="text" name="name" id="name" value="{{ $customer->name }}" required><br><br>
+        <input type="text" name="name" id="name" value="{{ old('name', $customer->name) }}" required><br>
+        @error('name')
+            <span class="error">{{ $message }}</span><br>
+        @enderror
+        <br>
 
         <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" value="{{ $customer->email }}" required><br><br>
+        <input type="email" name="email" id="email" value="{{ old('email', $customer->email) }}" required><br>
+        @error('email')
+            <span class="error">{{ $message }}</span><br>
+        @enderror
+        <br>
 
         <label for="phone">Telefone:</label><br>
-        <input type="text" name="phone" id="phone" value="{{ $customer->phone }}"><br><br>
+        <input 
+            type="text" 
+            name="phone" 
+            id="phone" 
+            value="{{ old('phone', $customer->phone) }}" 
+            pattern="[0-9]+" 
+            maxlength="15" 
+            placeholder="Apenas números"
+        ><br>
+        @error('phone')
+            <span class="error">{{ $message }}</span><br>
+        @enderror
+        <br>
 
         <button type="submit" class="action-button save">Atualizar</button>
     </form>

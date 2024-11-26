@@ -32,5 +32,10 @@
                 <a href="{{ route('password.request') }}" class="forgot-link">Esqueceu sua senha?</a>
             </div>
         </form>
+
+        <!-- Seção do Registro -->
+        <div class="register-link">
+            <p>Não tem uma conta? <a href="{{ route('register') }}" class="action-button register">Registrar-se</a></p>
+        </div>
     </div>
 @endsection
