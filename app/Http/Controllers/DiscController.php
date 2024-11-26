@@ -120,4 +120,24 @@ class DiscController extends Controller
 
         return redirect()->route('discs.index')->with('success', 'Disco excluído com sucesso!');
     }
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    $discs = Disc::whereRaw('LOWER(title) LIKE ?', ['%' . strtolower($query) . '%'])
+        ->orWhereHas('format', function ($q) use ($query) {
+            $q->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($query) . '%']);
+        })
+        ->orWhereHas('artist', function ($q) use ($query) {
+            $q->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($query) . '%']); 
+        })
+        ->with(['format', 'artist', 'genre']) 
+        ->get();
+
+    return view('discs.index', compact('discs', 'query'));
+}
+
+    
+
 }

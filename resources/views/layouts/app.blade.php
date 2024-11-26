@@ -616,6 +616,53 @@ nav a:hover {
     transform: scale(1.05); /* Leve efeito de hover */
 }
 
+/* Contêiner para centralizar o formulário */
+.search-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin: 20px 0; /* Espaço acima e abaixo */
+}
+
+/* Estilo para o formulário */
+.search-form {
+    display: flex;
+    gap: 10px; /* Espaço entre o input e o botão */
+    align-items: center;
+}
+
+.search-form input {
+    padding: 8px;
+    width: 250px; /* Ajuste da largura do campo de pesquisa */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px; /* Tamanho de texto consistente */
+}
+
+.search-form button {
+    padding: 6px 10px; /* Redução do padding */
+    border-radius: 4px;
+    background-color: #5d3ea8; /* Roxo pastel */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px; /* Texto menor para combinar com o input */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover do botão */
+.search-form button:hover {
+    background-color: #4b2e89; /* Roxo mais escuro */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Estilo ao clicar */
+.search-form button:active {
+    background-color: #3a256f; /* Roxo ainda mais escuro */
+    transform: scale(0.95); /* Leve redução ao clicar */
+}
+
+
 
     </style>
 </head>

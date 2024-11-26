@@ -9,6 +9,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\HomeController;
 
+Route::get('/search', [DiscController::class, 'search'])->name('discs.search');
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
